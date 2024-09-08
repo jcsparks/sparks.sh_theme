@@ -1,0 +1,39 @@
+{#
+/**
+ * @file
+ * Theme override to display a media item.
+ *
+ * Available variables:
+ * - name: Name of the media.
+ * - content: Media content.
+ *
+ * @see template_preprocess_media()
+ *
+ * @ingroup themeable
+ */
+#}
+{{ attach_library('jcsparks/media-artwork') }}
+{%
+  set classes = [
+    'media',
+    'artwork',
+    'media--type-' ~ media.bundle()|clean_class,
+    not media.isPublished() ? 'media--unpublished',
+    view_mode ? 'media--view-mode-' ~ view_mode|clean_class,
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+  {{ title_suffix.contextual_links }}
+  {% if content %}
+    <div class="artwork-img">
+      {{ content.field_media_image }}
+    </div>
+    <ul class="artwork-details">
+      <li><h2 class="artwork-title">{{name}}</h2></li>
+      <li>{{content.field_medium|render|striptags|trim}} on {{content.field_support|render|striptags|trim}}</li>
+      <li>{{content.field_width|render|striptags|trim}}" x {{content.field_height|render|striptags|trim}}" 
+      &nbsp; &nbsp; &bull; &nbsp; &nbsp; &copy; {{content.field_copyright_year|render|striptags|trim}}</li>
+    </ul>
+
+  {% endif %}
+</div>

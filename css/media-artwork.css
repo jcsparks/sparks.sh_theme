@@ -1,0 +1,14 @@
+h1 {
+    margin: 0.5em 0;
+}
+
+h2.artwork-title {
+    font-size: 1.25em;
+    margin: 0;
+    font-weight: bolder; 
+}
+
+ul.artwork-details {
+    list-style: none;
+    padding-left: 1.1em;
+}

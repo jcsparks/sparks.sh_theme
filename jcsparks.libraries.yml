@@ -1,6 +1,7 @@
 global-styling:
   css:
     theme:
+      https://fonts.googleapis.com/css2?family=Birthstone&display=swap: { type : external }
       css/style.css: {}
 
 media-artwork: 
